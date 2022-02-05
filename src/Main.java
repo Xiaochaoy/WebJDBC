@@ -3,8 +3,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
 
+/**
+ * Esta clase es la principal donde inicializas tu programa y muestra un menu
+ */
 public class Main {
-
 	public static void main(String[] args) throws IOException, SQLException, ParseException {
 		Menu menu = new Menu();
 		

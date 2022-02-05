@@ -3,14 +3,24 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 
+/**
+ * Esta clase sirve para mostrar menus
+ */
 public class Menu {
 	private int option;
 	private String opciones;
 
+	/**
+	 * Este es un constructor y llama a la clase padre suyo(nose quien es)
+	 */
 	public Menu() {
 		super();
 	}
 
+	/**
+	 * Este metodo sirve para mostrar un menu
+	 * @return devuelte la opcion que elegiste en numero
+	 */
 	public int mainMenu() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -48,6 +58,12 @@ public class Menu {
 
 		return option;
 	}
+
+	/**
+	 * Este metodo sirve para mostrar un menu de rol
+	 * @param c recibe la coneccion
+	 * @return devuelve el rol que elegiste
+	 */
 	public String RolMenu(Connection c){
 		RolController rolController = new RolController(c);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -64,6 +80,12 @@ public class Menu {
 			return opciones;
 		}
 	}
+
+	/**
+	 * Este metodo sirve para mostrar un menu de nombres de campeon
+	 * @param c recibe la coneccion
+	 * @return devuelve el nombre que elegiste
+	 */
 	public String NomMenu(Connection c){
 		CampeonController campeonController = new CampeonController(c);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -81,6 +103,12 @@ public class Menu {
 		}
 	}
 
+	/**
+	 * Este metodo sirve para auntenticar
+	 * @param tries recibe la cantidad de intento
+	 * @return devuelve unos datos de tipo Identity
+	 * @throws IOException es un tipo de excepciones
+	 */
 	public Identity authenticate(int tries) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("============================ACB=============================");
@@ -94,8 +122,5 @@ public class Menu {
 
 		Identity identity = new Identity(user, password);
 		return identity;
-
 	}
-
-
 }

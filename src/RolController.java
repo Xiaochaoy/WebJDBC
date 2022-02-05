@@ -3,16 +3,26 @@ import java.sql.*;
 import java.util.Locale;
 import java.util.Scanner;
 
+/**
+ * Esta clase sirve para controlar la tabla rol situada en mi base de datos
+ */
 public class RolController {
     private Connection connection;
     Scanner sc;
     Menu menu = new Menu();
 
+    /**
+     * Esto es el constructor de la clase
+     * @param connection recibe la coneccion hacia postgres
+     */
     public RolController(Connection connection) {
         this.connection = connection;
         this.sc = new Scanner(System.in);
     }
 
+    /**
+     * Este metodo sirve para crear un rol
+     */
     public void createRol() {
         try {
             System.out.println("----------------------");
@@ -36,6 +46,10 @@ public class RolController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Este metodo sirve para mostrar roles
+     */
     public void showRols(){
         System.out.println("\n" + "Roles: ");
 
@@ -57,6 +71,10 @@ public class RolController {
             System.out.println("Error: tabla rol no existe");
         }
     }
+
+    /**
+     * Este metodo sirve para borrar la tabla de rol
+     */
     public void borrarTabla() {
         try {
             Statement st = connection.createStatement();
@@ -67,6 +85,10 @@ public class RolController {
             System.out.println("Error: tabla rol no existe");
         }
     }
+
+    /**
+     * Este metodo sirve para crear la tabla de rol
+     */
     public void crearTabla(){
         try {
             Statement st = connection.createStatement();
@@ -78,6 +100,10 @@ public class RolController {
 
         }
     }
+
+    /**
+     * Este metodo sirve para modificar el rol de los campeones que comienzan por tal letra
+     */
     public void modificarRol(){
         try {
             Statement st = connection.createStatement();

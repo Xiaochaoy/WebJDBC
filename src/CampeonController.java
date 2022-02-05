@@ -4,16 +4,26 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.Scanner;
 
+/**
+ * Esta clase sirve para controlar la tabla campeon situada en mi base de datos
+ */
 public class CampeonController {
     private Connection connection;
     Scanner sc;
     Menu menu = new Menu();
 
+    /**
+     * Esto es el constructor de la clase
+     * @param connection recibe la coneccion hacia postgres
+     */
     public CampeonController(Connection connection) {
         this.connection = connection;
         this.sc = new Scanner(System.in);
     }
 
+    /**
+     * Este metodo sirve para crear un campeon
+     */
     public void createCampeon() {
         try {
             System.out.println("----------------------");
@@ -46,6 +56,10 @@ public class CampeonController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Este metodo sirve para borrar la tabla de campeon
+     */
     public void borrarTabla() {
         try {
             Statement st = connection.createStatement();
@@ -56,6 +70,10 @@ public class CampeonController {
             System.out.println("Error: tabla campeon no existe");
         }
     }
+
+    /**
+     * Este metodo sirve para crear la tabla de campeon
+     */
     public void crearTabla(){
         try {
             Statement st = connection.createStatement();
@@ -66,6 +84,10 @@ public class CampeonController {
             System.out.println("Error: tabla campeon ya existe");
         }
     }
+
+    /**
+     * Este metodo sirve para mostrar campeones por roles
+     */
     public void showCampeonPorRol(){
         ResultSet rs = null;
         String rol = menu.RolMenu(connection).toUpperCase(Locale.ROOT);
@@ -88,6 +110,10 @@ public class CampeonController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Este metodo sirve para mostrar campeones con un texto especificado
+     */
     public void showCampeonCon(){
         ResultSet rs = null;
         System.out.println("Escribe el texto a contener: ");
@@ -111,6 +137,10 @@ public class CampeonController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Este metodo sirve para mostrar campeones que empiezan por tal letra
+     */
     public void showCampeonPor(){
         ResultSet rs = null;
         System.out.println("Escribe el texto de inicio: ");
@@ -135,6 +165,10 @@ public class CampeonController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Este metodo sirve para mostrar los nombres de campeon que hay
+     */
     public void showCampeonNom(){
         ResultSet rs = null;
         String sql = "SELECT nom FROM campeon";
@@ -156,6 +190,10 @@ public class CampeonController {
         }
         System.out.println("Elige el campeon: ");
     }
+
+    /**
+     * Este metodo sirve para mostrar campeones
+     */
     public void showCampeones(){
         System.out.println("\n" + "Campeones: ");
         ResultSet rs = null;
@@ -178,6 +216,10 @@ public class CampeonController {
             System.out.println("Error: tabla campeon no existe");
         }
     }
+
+    /**
+     * Este metodo sirve para modificar el nombre de un campeon
+     */
     public void modificarCampeon(){
         try {
             Statement st = connection.createStatement();
@@ -192,6 +234,10 @@ public class CampeonController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Este metodo sirve para borrar un campeon
+     */
     public void borrarCampeon(){
         try {
             Statement st = connection.createStatement();
@@ -204,6 +250,10 @@ public class CampeonController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Este metodo sirve para borrar campeones por roles
+     */
     public void borrarCampeonPorRol(){
         try {
             Statement st = connection.createStatement();

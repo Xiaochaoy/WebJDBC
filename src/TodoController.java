@@ -9,15 +9,25 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
+/**
+ * Esta clase sirve para leer fichero CSV y meter en la base de datos
+ */
 public class TodoController {
     private Connection connection;
     Scanner sc;
 
+    /**
+     * Esto es el constructor de la clase
+     * @param connection recibe la coneccion hacia postgres
+     */
     public TodoController(java.sql.Connection connection) {
         this.connection = connection;
         this.sc = new Scanner(System.in);
     }
 
+    /**
+     * Este metodo sirve para rellenar datos de un fichero hacia las tablas de base de datos
+     */
     public void rellenar() {
         int cont = 0;
         String[] rata;

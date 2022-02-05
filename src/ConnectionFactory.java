@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * Esta clase sirve para hacer las conecciones
+ */
 public class ConnectionFactory {
 	// init database constants
 	private static final String DATABASE_DRIVER = "org.postgresql.Driver";
@@ -26,11 +29,18 @@ public class ConnectionFactory {
 	// init properties object
 	private Properties properties;
 
+	/**
+	 * Es un constructor para iniciar la coneccion
+	 */
 	private ConnectionFactory() {
 		super();
 		init();
 	}
 
+	/**
+	 * Esto para pillar el Instance
+	 * @return devuelve el Instance
+	 */
 	public static ConnectionFactory getInstance() {
 		if (instance == null) {
 			instance = new ConnectionFactory();
@@ -63,7 +73,10 @@ public class ConnectionFactory {
 		}
 	}
 
-//	// create properties
+	/**
+	 * Esto para crear los properties
+	 * @return devuelve el properties ya creado
+	 */
 	private Properties getProperties() {
 		if (properties == null) {
 			properties = new Properties();
@@ -74,7 +87,10 @@ public class ConnectionFactory {
 		return properties;
 	}
 
-	// connect database
+	/**
+	 * Esto es para conectar
+	 * @return devuelve la coneccion
+	 */
 	public Connection connect() {
 		if (connection == null) {
 
@@ -106,7 +122,9 @@ public class ConnectionFactory {
 		return connection;
 	}
 
-	// disconnect database
+	/**
+	 * Esto para desconectar la coneccion
+	 */
 	public void disconnect() {
 		if (connection != null) {
 			try {
@@ -117,22 +135,4 @@ public class ConnectionFactory {
 			}
 		}
 	}
-	
-//	public void init() {
-//		Properties prop = new Properties();
-//		InputStream propStream = this.getClass().getClassLoader().getResourceAsStream("db.properties");
-//
-//		try {
-//			prop.load(propStream);
-//			this.host = prop.getProperty("host");
-//			this.port = prop.getProperty("port");
-//			this.dbname = prop.getProperty("dbname");
-//			this.schema = prop.getProperty("schema");
-//		} catch (IOException e) {
-//			String message = "ERROR: db.properties file could not be found";
-//			System.err.println(message);
-//			throw new RuntimeException(message, e);
-//		}
-//	}
-	
 }
