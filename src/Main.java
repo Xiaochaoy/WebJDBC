@@ -13,88 +13,79 @@ public class Main {
 
 		CampeonController campeonController = new CampeonController(c);
 		RolController rolController = new RolController(c);
+		TodoController todoController = new TodoController(c);
 
-
-		
-//		Connection conn = null;
-//		Identity identity;
-//		int option;
-//		int intents = 0;
-//		DBAccessor dbaccessor = new DBAccessor();
-//		dbaccessor.init();
-//		while (intents < 3 && conn == null) {
-//			identity = menu.authenticate(intents);
-//			// prova de test
-//			identity.toString();
-//
-//			conn = dbaccessor.getConnection(identity);
-//			intents++;
-//		}
 
 		int option = menu.mainMenu();
-		while (option > 0 && option < 14) {
+		while (option > 0 && option < 16) {
 			switch (option) {
-			case 1:
-				// dbaccessor.mostraAutors();
-				break;
+				case 1:
+					campeonController.borrarTabla();
+					rolController.borrarTabla();
+					break;
 
-			case 2:
+				case 2:
+					rolController.crearTabla();
+					campeonController.crearTabla();
+					break;
 
-				// dbaccessor.mostraRevistes();
-				break;
+				case 3:
+					todoController.rellenar();
+					break;
 
-			case 3:
-				// dbaccessor.mostraRevistesArticlesAutors();
-				break;
+				case 4:
+					campeonController.showCampeonPorRol();
+					break;
 
-			case 4:
-				// dbaccessor.altaAutor();
-				break;
+				case 5:
+					campeonController.showCampeonCon();
+					break;
 
-			case 5:
-				// dbaccessor.altaRevista();
-				break;
+				case 6:
+					campeonController.showCampeonPor();
+					break;
 
-			case 6:
-				// dbaccessor.altaArticle();
-				break;
+				case 7:
+					campeonController.modificarCampeon();
+					break;
 
-			case 7:
-				// dbaccessor.actualitzarTitolRevistes(conn);
-				break;
+				case 8:
+					rolController.modificarRol();
+					break;
 
-			case 8:
-				// dbaccessor.afegeixArticleARevista(conn);
-				break;
+				case 9:
+					campeonController.borrarCampeon();
+					break;
 
-			case 9:
-				// dbaccessor.desassignaArticleARevista(conn);
-				break;
+				case 10:
+					campeonController.borrarCampeonPorRol();
+					break;
 
-			case 10:
-				// dbaccessor.carregaAutors(conn);
-				break;
+				case 11:
+					rolController.createRol();
+					break;
 
-			case 11:
-				// dbaccessor.sortir();
-				break;
+				case 12:
+					campeonController.createCampeon();
+					break;
 
-			case 12:
-				campeonController.createCampeon(c);
-				break;
+				case 13:
+					campeonController.showCampeones();
+					break;
 
-			case 13:
-				//
-				break;
+				case 14:
+					rolController.showRols();
+					break;
 
-			default:
-				System.out.println("Introdueixi una de les opcions anteriors");
-				break;
+				case 15:
+					System.exit(0);
+					break;
 
-			}
+				default:
+					System.out.println("Introdueixi una de les opcions anteriors");
+					break;
+				}
 			option = menu.mainMenu();
 		}
-
 	}
-
 }
