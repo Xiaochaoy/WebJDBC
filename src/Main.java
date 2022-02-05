@@ -3,17 +3,16 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
 
-public class ACBMain {
+public class Main {
 
 	public static void main(String[] args) throws IOException, SQLException, ParseException {
-		ACBMenu menu = new ACBMenu();
+		Menu menu = new Menu();
 		
 		ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
 		Connection c = connectionFactory.connect();
 
-		TeamController teamController = new TeamController(c);
-		PlayerController playerController = new PlayerController(c);
-		MatchController matchController = new MatchController(c);
+		CampeonController campeonController = new CampeonController(c);
+		RolController rolController = new RolController(c);
 		
 		
 //		Connection conn = null;
@@ -35,7 +34,6 @@ public class ACBMain {
 		while (option > 0 && option < 12) {
 			switch (option) {
 			case 1:
-				teamController.showTeams();
 				// dbaccessor.mostraAutors();
 				break;
 
@@ -45,17 +43,14 @@ public class ACBMain {
 				break;
 
 			case 3:
-				teamController.createTeam();
 				// dbaccessor.mostraRevistesArticlesAutors();
 				break;
 
 			case 4:
-				playerController.createPlayer();
 				// dbaccessor.altaAutor();
 				break;
 
 			case 5:
-				matchController.createMatch();
 				// dbaccessor.altaRevista();
 				break;
 

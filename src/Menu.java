@@ -2,10 +2,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ACBMenu {
+public class Menu {
 	private int option;
 
-	public ACBMenu() {
+	public Menu() {
 		super();
 	}
 
@@ -16,16 +16,18 @@ public class ACBMenu {
 
 			System.out.println(" \nMENU PRINCIPAL \n");
 
-			System.out.println("1. Mostra equips");
-			System.out.println("2. Mostra jugadors d'un determinat equip");
-			System.out.println("3. Crea Equip");
-			System.out.println("4. Crea Jugador");
-			System.out.println("5. Crea Partit");
-			System.out.println("6. Mostra jugadors a un equip");
-			System.out.println("7. Assigna jugador a un equip");
-			System.out.println("8. Desvincula jugador d'un equip");
-			System.out.println("9. Carrega estadístiques");
-			System.out.println("10. Sortir");
+			System.out.println("1. Borrar Tablas");
+			System.out.println("2. Craer Tablas");
+			System.out.println("3. Rellenar Tablas");
+			System.out.println("4. Mostrar los que sean Asesino");
+			System.out.println("5. Mostrar los que tengan un ?");
+			System.out.println("6. Mostrar todos los campeon que empiezan por ?");
+			System.out.println("7. Modificar un campeon");
+			System.out.println("8. Modificar campeones que empiezan por ?");
+			System.out.println("9. Eliminar un campeon");
+			System.out.println("10. Eliminar campeones con el rol ?");
+			System.out.println("11. Añadir un rol");
+			System.out.println("12. Exit");
 			System.out.println("Esculli opció: ");
 			try {
 				option = Integer.parseInt(br.readLine());
@@ -36,7 +38,8 @@ public class ACBMenu {
 			}
 
 		} while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6 && option != 7
-				&& option != 8 && option != 9 && option != 10);
+				&& option != 8 && option != 9 && option != 10 && option != 11 && option != 12);
+
 
 		return option;
 	}
