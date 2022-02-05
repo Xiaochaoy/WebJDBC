@@ -13,7 +13,8 @@ public class Main {
 
 		CampeonController campeonController = new CampeonController(c);
 		RolController rolController = new RolController(c);
-		
+
+
 		
 //		Connection conn = null;
 //		Identity identity;
@@ -31,7 +32,7 @@ public class Main {
 //		}
 
 		int option = menu.mainMenu();
-		while (option > 0 && option < 12) {
+		while (option > 0 && option < 14) {
 			switch (option) {
 			case 1:
 				// dbaccessor.mostraAutors();
@@ -76,6 +77,14 @@ public class Main {
 
 			case 11:
 				// dbaccessor.sortir();
+				break;
+
+			case 12:
+				campeonController.createCampeon(c);
+				break;
+
+			case 13:
+				//
 				break;
 
 			default:

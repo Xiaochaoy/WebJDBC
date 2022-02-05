@@ -1,6 +1,4 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class RolController {
@@ -43,5 +41,29 @@ public class RolController {
         }catch (SQLException e){
             e.printStackTrace();
         }
+    }
+    public void showRols(Connection c){
+
+        ResultSet rs = null;
+        String sql = "SELECT * FROM rol";
+        int cont = 1;
+        try{
+            Statement st = c.createStatement();
+
+            rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                System.out.println(cont + " " + rs.getString("rol"));
+                cont++;
+            }
+
+            rs.close();
+            st.close();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        System.out.println("Esculli opció: ");
     }
 }

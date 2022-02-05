@@ -8,13 +8,14 @@ import java.util.Scanner;
 public class CampeonController {
     private Connection connection;
     Scanner sc;
+    Menu menu = new Menu();
 
     public CampeonController(Connection connection) {
         this.connection = connection;
         this.sc = new Scanner(System.in);
     }
 
-    public void createCampeon() {
+    public void createCampeon(Connection c) {
         try {
             System.out.println("----------------------");
             System.out.println("Crear Campeon");
@@ -23,8 +24,8 @@ public class CampeonController {
             System.out.println("Nombre:");
             String nom = sc.nextLine();
 
-            System.out.println("Rol");
-            String rol = sc.nextLine();
+            System.out.println("Elige un rol");
+            String rol = menu.RolMenu(c);
             //falta un menu de rols.
 
             System.out.println("Historia:");
