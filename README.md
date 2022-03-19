@@ -4,7 +4,7 @@
 > 
 > He utilizado el JDBC PostgreSQL Driver para conectar a mi base de datos que tengo creado en postgres desde intellij.
 >
-> Mi proyecto esta basado de la practica ACB, tengo un fichero de backup para crear la base de datos y las tablas y tengo un fichero de diagrama que se me olvido de ponerlo en el proyecto de WebScrapping
+> Mi proyecto esta basado de la practica ACB, tengo un fichero de sql para crear las tablas y tengo un fichero de diagrama que se me olvido de ponerlo en el proyecto de WebScrapping
 
 ## Como funcionar
 
